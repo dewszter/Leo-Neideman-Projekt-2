@@ -1,0 +1,36 @@
+* 
+{
+  margin: 0;
+  padding: 0;
+}
+header 
+{
+  height: 7%;
+  background-color: black;
+  color: white;
+  display: flex;
+
+}
+header h1
+{
+  margin-left: 35%;
+}
+
+.Ikoner img
+{
+  width: 5vw;
+}
+.Köttbulle img
+{
+  width: 20vw;
+}
+aside
+{
+  width: 25vw;
+}
+main
+{
+  width: 75vw;
+  display: grid;
+  grid-template-columns: 25% 58% 17%;
+}
