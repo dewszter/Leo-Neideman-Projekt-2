@@ -21,10 +21,10 @@ body {
     .Ikoner img {
       height: 100px;
     }
-    .Köttbulle img 
-    {
-      width: 25;
+    .Köttbulle img{
+      width: 25vw;
     }
+    
 
 }
 @media only screen and (max-width: 600px)
@@ -39,10 +39,7 @@ body {
   .Ikoner img {
     height: 50px;
   }
-  .Köttbulle img 
-    {
-      height: 50;
-    }
+  
 
 }
 
@@ -78,11 +75,23 @@ header {
   width: 20vw;
 }
 
-
-.Köttbulle
+.stats
+{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.Räknare
 {
   display: flex;
   align-items: center;
+  justify-content: center;
+  font-size: 4vw;
+}
+.Köttbulle
+{
+  display: grid;
+  grid-template-rows: 20vh 80vh;
+  
 }
 
 .Ikoner
