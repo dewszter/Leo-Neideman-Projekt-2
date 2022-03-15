@@ -1,5 +1,4 @@
 let antalKöttbullar = 0;
-let antalKlick = 0;
 let perSek = 0;
 let antalFarmödrar = 0;
 let antalugnar = 0;
@@ -7,40 +6,61 @@ let antalKök = 0;
 let antalIkeor = 0;
 let antalFabriker = 0;
 let antalBanker = 0;
-let antalLänder = 0;
+let antalKöttbulleRegn = 0;
+
+let antalKlick = 0;
 
 const KlickaKöttbulle = document.querySelector(".KlickaKöttbulle");
 const Räknare = document.querySelector(".Räknare");
 const KöttbullarPerSek = document.querySelector(".KöttbullarPerSek");
 
-const ButikKnappar = document.querySelectorAll("button").forEach((ButikKnappar) => {
+const KlickStats = document.querySelector(".KlickStats");
+const FarmorStats = document.querySelector(".FarmorStats");
+const UgnStats = document.querySelector(".UgnStats");
+const KökStats = document.querySelector(".KökStats");
+const IkeaStats = document.querySelector(".IkeaStats");
+const FabrikStats = document.querySelector(".FabrikStats");
+const KöttbulleRegnStats = document.querySelector(".KöttbulleRegnStats");
+
+const ButikKnappar = document
+  .querySelectorAll("button")
+  .forEach((ButikKnappar) => {
     ButikKnappar.addEventListener("click", ButikknappKlickad);
-});
+  });
 
 KlickaKöttbulle.addEventListener("click", Klickad);
 
 
-  
-  loop();
+loop();
+
+function loop() {
+  antalKöttbullar += perSek / 60;
+  uppdateraStatestik();
+  setTimeout(loop, 1000 / 60);
+
+}
+
+function Klickad(event) {
+  antalKöttbullar++;
+ 
+}
+
+function uppdateraStatestik() {
+  Räknare.innerHTML = antalKöttbullar.toFixed(0) + " 🧆";
+  perSek =
+    antalFarmödrar * 0.2 +
+    antalugnar * 0.5 +
+    antalKök +
+    antalIkeor * 3 +
+    antalFabriker * 10 +
+    antalBanker * 30 +
+    antalKöttbulleRegn * 150;
+  KöttbullarPerSek.innerHTML = perSek.toFixed(1) + " 🧆/s";
+
   
 
-  function loop(){
-    antalKöttbullar += perSek/60;
-    uppdateraStatestik();
-    setTimeout(loop, 1000/60);
-  }   
-
-  function Klickad(event) {
-    antalKöttbullar++;
-    antalKlick++;
-  }
   
-  function uppdateraStatestik() {
-    Räknare.innerHTML = antalKöttbullar.toFixed(0) + " k";
-    perSek = antalFarmödrar * 0.2 + antalugnar * 0.5 + antalKök +   antalIkeor * 3 + antalFabriker * 10 + antalBanker * 30 + antalLänder * 150;
-    KöttbullarPerSek.innerHTML = perSek.toFixed(1) + " k/s";
-  }
-
+}
 
 function ButikknappKlickad(event) {
   switch (event.target.id) {
@@ -155,22 +175,21 @@ function ButikknappKlickad(event) {
     case "land1":
       if (antalKöttbullar >= 6000) {
         antalKöttbullar -= 6000;
-        antalLänder++;
+        antalKöttbulleRegn++;
       }
       break;
     case "land10":
       if (antalKöttbullar >= 60000) {
         antalKöttbullar -= 60000;
-        antalLänder += 10;
+        antalKöttbulleRegn += 10;
       }
       break;
 
     case "land50":
       if (antalKöttbullar >= 300000) {
         antalKöttbullar -= 300000;
-        antalLänder += 50;
+        antalKöttbulleRegn += 50;
       }
       break;
   }
- 
 }
