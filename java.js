@@ -29,9 +29,13 @@ const KökStats = document.querySelector(".KökStats");
 const IkeaStats = document.querySelector(".IkeaStats");
 const FabrikStats = document.querySelector(".FabrikStats");
 const KöttbulleRegnStats = document.querySelector(".KöttbulleRegnStats");
+const Farmödrar = document.querySelector(".Farmödrar")
 
-const ButikKnappar = document
-  .querySelectorAll("button")
+const ExtraFarmödrar = document.querySelector(".ExtraFarmödrar")
+
+
+
+const ButikKnappar = document  .querySelectorAll("button")
   .forEach((ButikKnappar) => {
     ButikKnappar.addEventListener("click", ButikknappKlickad);
   });
@@ -48,6 +52,12 @@ function loop() {
 
 function Klickad(event) {
   antalKöttbullar++;
+}
+
+function NyFarmor(){
+  const nyFarmor = document.createElement("img");
+  nyFarmor.src = "Farmor.gif";
+  Farmödrar.appendChild(nyFarmor);
 }
 
 function uppdateraVärden() {
@@ -69,6 +79,14 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= farmorPris) {
         antalKöttbullar -= farmorPris;
         antalFarmödrar += 1;
+        if (antalFarmödrar <= 18)
+        {
+          NyFarmor();
+        }
+        else
+        {
+          ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar-18);
+        }
       }
       break;
     case "farmor10":
