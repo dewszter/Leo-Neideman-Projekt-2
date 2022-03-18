@@ -22,20 +22,14 @@ const KlickaKöttbulle = document.querySelector(".KlickaKöttbulle");
 const Räknare = document.querySelector(".Räknare");
 const KöttbullarPerSek = document.querySelector(".KöttbullarPerSek");
 
-const KlickStats = document.querySelector(".KlickStats");
-const FarmorStats = document.querySelector(".FarmorStats");
-const UgnStats = document.querySelector(".UgnStats");
-const KökStats = document.querySelector(".KökStats");
-const IkeaStats = document.querySelector(".IkeaStats");
-const FabrikStats = document.querySelector(".FabrikStats");
-const KöttbulleRegnStats = document.querySelector(".KöttbulleRegnStats");
+
 
 const FarmödrarDiv = document.querySelector(".FarmödrarDiv");
 const UgnarDiv = document.querySelector(".UgnarDiv");
 const KökDiv = document.querySelector(".KökDiv");
 const IkeorDiv = document.querySelector(".IkeorDiv");
-const FabrikerDiv = document.querySelector(".FabrikDiv");
-const BankerDiv = document.querySelector(".BankDiv");
+const FabrikerDiv = document.querySelector(".FabrikerDiv");
+const BankerDiv = document.querySelector(".BankerDiv");
 const KöttbulleRegnDiv = document.querySelector(".KöttbulleRegnDiv");
 
 const ExtraFarmödrar = document.querySelector(".ExtraFarmödrar");
@@ -45,6 +39,7 @@ const ExtraIkeor = document.querySelector(".ExtraIkeor");
 const ExtraFabriker = document.querySelector(".ExtraFabriker");
 const ExtraBanker = document.querySelector(".ExtraBanker");
 const ExtraKöttbulleRegn = document.querySelector(".ExtraKöttbulleRegn");
+
 
 const ButikKnappar = document
   .querySelectorAll("button")
@@ -63,6 +58,8 @@ function loop() {
 }
 
 function Klickad(event) {
+  antalKlick++;
+  localStorage.setItem("click", antalKlick);
   antalKöttbullar++;
 }
 
@@ -121,10 +118,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= farmorPris) {
         antalKöttbullar -= farmorPris;
         antalFarmödrar += 1;
-        if (antalFarmödrar <= 18) {
+        if (antalFarmödrar <= 10) {
           NyFarmor();
         } else {
-          ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar - 18);
+          ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar - 10);
         }
       }
       break;
@@ -133,10 +130,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= farmorPris * 10;
         for (let i = 0; i < 10; i++) {
           antalFarmödrar++;
-          if (antalFarmödrar <= 18) {
+          if (antalFarmödrar <= 10) {
             NyFarmor();
           } else {
-            ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar - 18);
+            ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar - 10);
           }
         }
       }
@@ -147,10 +144,10 @@ function ButikknappKlickad(event) {
 
         for (let i = 0; i < 50; i++) {
           antalFarmödrar++;
-          if (antalFarmödrar <= 18) {
+          if (antalFarmödrar <= 10) {
             NyFarmor();
           } else {
-            ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar - 18);
+            ExtraFarmödrar.innerHTML = "+ " + (antalFarmödrar - 10);
           }
         }
       }
@@ -159,10 +156,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= ugnPris) {
         antalKöttbullar -= ugnPris;
         antalUgnar++;
-        if (antalUgnar <= 18) {
+        if (antalUgnar <= 10) {
           NyUgn();
         } else {
-          ExtraUgnar.innerHTML = "+ " + (antalUgnar - 18);
+          ExtraUgnar.innerHTML = "+ " + (antalUgnar - 10);
         }
       }
       break;
@@ -171,10 +168,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= ugnPris * 10;
         for (let i = 0; i < 10; i++) {
           antalUgnar++;
-          if (antalUgnar <= 18) {
+          if (antalUgnar <= 10) {
             NyUgn();
           } else {
-            ExtraUgnar.innerHTML = "+ " + (antalUgnar - 18);
+            ExtraUgnar.innerHTML = "+ " + (antalUgnar - 10);
           }
         }
       }
@@ -184,10 +181,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= ugnPris * 50;
         for (let i = 0; i < 50; i++) {
           antalUgnar++;
-          if (antalUgnar <= 18) {
+          if (antalUgnar <= 10) {
             NyUgn();
           } else {
-            ExtraUgnar.innerHTML = "+ " + (antalUgnar - 18);
+            ExtraUgnar.innerHTML = "+ " + (antalUgnar - 10);
           }
         }
       }
@@ -196,10 +193,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= kökPris) {
         antalKöttbullar -= kökPris;
         antalKök++;
-        if (antalKök <= 18) {
+        if (antalKök <= 10) {
           NyKök();
         } else {
-          ExtraKök.innerHTML = "+ " + (antalKök - 18);
+          ExtraKök.innerHTML = "+ " + (antalKök - 10);
         }
       }
       break;
@@ -208,10 +205,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= kökPris * 10;
         for (let i = 0; i < 10; i++) {
           antalKök++;
-          if (antalKök <= 18) {
+          if (antalKök <= 10) {
             NyKök();
           } else {
-            ExtraKök.innerHTML = "+ " + (antalKök - 18);
+            ExtraKök.innerHTML = "+ " + (antalKök - 10);
           }
         }
       }
@@ -221,10 +218,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= kökPris * 50;
         for (let i = 0; i < 50; i++) {
           antalKök++;
-          if (antalKök <= 18) {
+          if (antalKök <= 10) {
             NyKök();
           } else {
-            ExtraKök.innerHTML = "+ " + (antalKök - 18);
+            ExtraKök.innerHTML = "+ " + (antalKök - 10);
           }
         }
       }
@@ -233,10 +230,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= ikeaPris) {
         antalKöttbullar -= ikeaPris;
         antalIkeor++;
-        if (antalIkeor <= 18) {
+        if (antalIkeor <= 10) {
           NyIkea();
         } else {
-          ExtraIkeor.innerHTML = "+ " + (antalIkeor - 18);
+          ExtraIkeor.innerHTML = "+ " + (antalIkeor - 10);
         }
       }
       break;
@@ -245,10 +242,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= ikeaPris * 10;
         for (let i = 0; i < 10; i++) {
           antalIkeor++;
-          if (antalIkeor <= 18) {
+          if (antalIkeor <= 10) {
             NyIkea();
           } else {
-            ExtraIkeor.innerHTML = "+ " + (antalIkeor - 18);
+            ExtraIkeor.innerHTML = "+ " + (antalIkeor - 10);
           }
         }
       }
@@ -258,10 +255,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= ikeaPris * 50;
         for (let i = 0; i < 50; i++) {
           antalIkeor++;
-          if (antalIkeor <= 18) {
+          if (antalIkeor <= 10) {
             NyIkea();
           } else {
-            ExtraIkeor.innerHTML = "+ " + (antalIkeor - 18);
+            ExtraIkeor.innerHTML = "+ " + (antalIkeor - 10);
           }
         }
       }
@@ -270,10 +267,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= fabrikPris) {
         antalKöttbullar -= fabrikPris;
         antalFabriker++;
-        if (antalFabriker <= 18) {
+        if (antalFabriker <= 10) {
           NyFabrik();
         } else {
-          ExtraFabriker.innerHTML = "+ " + (antalFabriker - 18);
+          ExtraFabriker.innerHTML = "+ " + (antalFabriker - 10);
         }
       }
       break;
@@ -282,10 +279,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= fabrikPris * 10;
         for (let i = 0; i < 10; i++) {
           antalFabriker++;
-          if (antalFabriker <= 18) {
+          if (antalFabriker <= 10) {
             NyFabrik();
           } else {
-            ExtraFabriker.innerHTML = "+ " + (antalFabriker - 18);
+            ExtraFabriker.innerHTML = "+ " + (antalFabriker - 10);
           }
         }
       }
@@ -295,10 +292,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= fabrikPris * 50;
         for (let i = 0; i < 50; i++) {
           antalFabriker++;
-          if (antalFabriker <= 18) {
+          if (antalFabriker <= 10) {
             NyFabrik();
           } else {
-            ExtraFabriker.innerHTML = "+ " + (antalFabriker - 18);
+            ExtraFabriker.innerHTML = "+ " + (antalFabriker - 10);
           }
         }
       }
@@ -307,10 +304,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= bankPris) {
         antalKöttbullar -= bankPris;
         antalBanker++;
-        if (antalBanker <= 18) {
+        if (antalBanker <= 10) {
           NyBank();
         } else {
-          ExtraBanker.innerHTML = "+ " + (antalBanker - 18);
+          ExtraBanker.innerHTML = "+ " + (antalBanker - 10);
         }
       }
       break;
@@ -319,10 +316,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= bankPris * 10;
         for (let i = 0; i < 10; i++) {
           antalBanker++;
-          if (antalBanker <= 18) {
+          if (antalBanker <= 10) {
             NyBank();
           } else {
-            ExtraBanker.innerHTML = "+ " + (antalBanker - 18);
+            ExtraBanker.innerHTML = "+ " + (antalBanker - 10);
           }
         }
       }
@@ -332,10 +329,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= bankPris * 50;
         for (let i = 0; i < 50; i++) {
           antalBanker++;
-          if (antalBanker <= 18) {
+          if (antalBanker <= 10) {
             NyBank();
           } else {
-            ExtraBanker.innerHTML = "+ " + (antalBanker - 18);
+            ExtraBanker.innerHTML = "+ " + (antalBanker - 10);
           }
         }
       }
@@ -344,10 +341,10 @@ function ButikknappKlickad(event) {
       if (antalKöttbullar >= köttbulleRegnPris) {
         antalKöttbullar -= köttbulleRegnPris;
         antalKöttbulleRegn++;
-        if (antalKöttbulleRegn <= 18) {
+        if (antalKöttbulleRegn <= 10) {
           NyKöttbulleRegn();
         } else {
-          ExtraKöttbulleRegn.innerHTML = "+ " + (antalKöttbulleRegn - 18);
+          ExtraKöttbulleRegn.innerHTML = "+ " + (antalKöttbulleRegn - 10);
         }
       }
       break;
@@ -356,10 +353,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= köttbulleRegnPris * 10;
         for (let i = 0; i < 10; i++) {
           antalKöttbulleRegn++;
-          if (antalKöttbulleRegn <= 18) {
+          if (antalKöttbulleRegn <= 10) {
             NyKöttbulleRegn();
           } else {
-            ExtraKöttbulleRegn.innerHTML = "+ " + (antalKöttbulleRegn - 18);
+            ExtraKöttbulleRegn.innerHTML = "+ " + (antalKöttbulleRegn - 10);
           }
         }
       }
@@ -370,10 +367,10 @@ function ButikknappKlickad(event) {
         antalKöttbullar -= köttbulleRegnPris * 50;
         for (let i = 0; i < 50; i++) {
           antalKöttbulleRegn++;
-          if (antalKöttbulleRegn <= 18) {
+          if (antalKöttbulleRegn <= 10) {
             NyKöttbulleRegn();
           } else {
-            ExtraKöttbulleRegn.innerHTML = "+ " + (antalKöttbulleRegn - 18);
+            ExtraKöttbulleRegn.innerHTML = "+ " + (antalKöttbulleRegn - 10);
           }
         }
       }
