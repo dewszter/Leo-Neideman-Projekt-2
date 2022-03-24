@@ -1,4 +1,5 @@
 let antalKöttbullar = 0;
+
 let perSek = 0;
 let antalFarmödrar = 0;
 let antalUgnar = 0;
@@ -16,13 +17,12 @@ let fabrikPris = 600;
 let bankPris = 1000;
 let köttbulleRegnPris = 6000;
 
-let antalKlick = 0;
+let antalKlick = localStorage.getItem("antalKlick") || 0;
+let farmorStats = localStorage.get;
 
 const KlickaKöttbulle = document.querySelector(".KlickaKöttbulle");
 const Räknare = document.querySelector(".Räknare");
 const KöttbullarPerSek = document.querySelector(".KöttbullarPerSek");
-
-
 
 const FarmödrarDiv = document.querySelector(".FarmödrarDiv");
 const UgnarDiv = document.querySelector(".UgnarDiv");
@@ -40,7 +40,6 @@ const ExtraFabriker = document.querySelector(".ExtraFabriker");
 const ExtraBanker = document.querySelector(".ExtraBanker");
 const ExtraKöttbulleRegn = document.querySelector(".ExtraKöttbulleRegn");
 
-
 const ButikKnappar = document
   .querySelectorAll("button")
   .forEach((ButikKnappar) => {
@@ -55,12 +54,35 @@ function loop() {
   antalKöttbullar += perSek / 60;
   uppdateraVärden();
   setTimeout(loop, 1000 / 60);
+  if (antalKöttbullar > 1000000000) {
+    Vinst();
+  }
 }
+
+function Vinst() {}
 
 function Klickad(event) {
   antalKlick++;
-  localStorage.setItem("click", antalKlick);
   antalKöttbullar++;
+  // localStorage.setItem("antalKöttbullar", antalKöttbullar);
+}
+
+function uppdateraVärden() {
+  // antalKöttbullar = localStorage.getItem("antalKöttbullar")
+
+  Räknare.innerText = antalKöttbullar.toFixed(0) + " 🧆";
+  perSek =
+    antalFarmödrar * 0.2 +
+    antalUgnar * 0.5 +
+    antalKök +
+    antalIkeor * 3 +
+    antalFabriker * 10 +
+    antalBanker * 30 +
+    antalKöttbulleRegn * 150;
+
+  localStorage.setItem("antalKlick", antalKlick);
+
+  KöttbullarPerSek.innerHTML = perSek.toFixed(1) + " 🧆/s";
 }
 
 function NyFarmor() {
@@ -97,19 +119,6 @@ function NyKöttbulleRegn() {
   const nyKöttbulleRegn = document.createElement("img");
   nyKöttbulleRegn.src = "KöttbulleRegn.gif";
   KöttbulleRegnDiv.appendChild(nyKöttbulleRegn);
-}
-
-function uppdateraVärden() {
-  Räknare.innerHTML = antalKöttbullar.toFixed(0) + " 🧆";
-  perSek =
-    antalFarmödrar * 0.2 +
-    antalUgnar * 0.5 +
-    antalKök +
-    antalIkeor * 3 +
-    antalFabriker * 10 +
-    antalBanker * 30 +
-    antalKöttbulleRegn * 150;
-  KöttbullarPerSek.innerHTML = perSek.toFixed(1) + " 🧆/s";
 }
 
 function ButikknappKlickad(event) {
