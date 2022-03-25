@@ -1,6 +1,20 @@
-let antalKöttbullar = 0;
+if (localStorage.getItem("antalKöttbullar") == NaN) {
+  localStorage.setItem("antalKöttbullar", 0);
+}
+if (localStorage.getItem("antalKlick") == NaN) {
+  localStorage.setItem("antalKlick", 0);
+}
+if (localStorage.getItem("antalKöttbullar") == NaN) {
+  localStorage.setItem("antalKöttbullar", 0);
+}
+if (localStorage.getItem("perSek") == NaN) {
+  localStorage.setItem("perSek", 0);
+}
 
-let perSek = 0;
+//localStorage.clear()
+let antalKöttbullar = Number(localStorage.getItem("antalKöttbullar"));
+let perSek = Number(localStorage.getItem("perSek"));
+
 let antalFarmödrar = 0;
 let antalUgnar = 0;
 let antalKök = 0;
@@ -17,8 +31,8 @@ let fabrikPris = 600;
 let bankPris = 1000;
 let köttbulleRegnPris = 6000;
 
-let antalKlick = localStorage.getItem("antalKlick") || 0;
-let farmorStats = localStorage.get;
+let antalKlick = Number(localStorage.getItem("antalKlick"));
+let farmorStats = Number(localStorage.getItem("farmorStats"));
 
 const KlickaKöttbulle = document.querySelector(".KlickaKöttbulle");
 const Räknare = document.querySelector(".Räknare");
@@ -51,25 +65,26 @@ KlickaKöttbulle.addEventListener("click", Klickad);
 loop();
 
 function loop() {
-  antalKöttbullar += perSek / 60;
   uppdateraVärden();
   setTimeout(loop, 1000 / 60);
-  if (antalKöttbullar > 1000000000) {
+  /* if (antalKöttbullar > 1000000000) {
     Vinst();
-  }
+  }*/
 }
 
-function Vinst() {}
+//function Vinst() {}
 
 function Klickad(event) {
   antalKlick++;
   antalKöttbullar++;
-  // localStorage.setItem("antalKöttbullar", antalKöttbullar);
 }
 
 function uppdateraVärden() {
-  // antalKöttbullar = localStorage.getItem("antalKöttbullar")
+  localStorage.setItem("antalKlick", antalKlick);
+  localStorage.setItem("antalKöttbullar", antalKöttbullar);
+  localStorage.setItem("perSek", perSek);
 
+  antalKöttbullar += perSek / 60;
   Räknare.innerText = antalKöttbullar.toFixed(0) + " 🧆";
   perSek =
     antalFarmödrar * 0.2 +
@@ -79,8 +94,6 @@ function uppdateraVärden() {
     antalFabriker * 10 +
     antalBanker * 30 +
     antalKöttbulleRegn * 150;
-
-  localStorage.setItem("antalKlick", antalKlick);
 
   KöttbullarPerSek.innerHTML = perSek.toFixed(1) + " 🧆/s";
 }

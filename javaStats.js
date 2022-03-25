@@ -1,5 +1,6 @@
 let antalKlickStats = localStorage.getItem("antalKlick");
 
+
 const KlickStats = document.querySelector(".KlickStats");
 const FarmorStats = document.querySelector(".FarmorStats");
 const UgnStats = document.querySelector(".UgnStats");
