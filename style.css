@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bold;
   font-variant-caps: all-petite-caps;
 }
@@ -15,10 +15,10 @@ body {
 }
 
 .Köttbulle {
-background: linear-gradient(#f9906f, black)
+  background: linear-gradient(#f9906f, black);
 }
 .MainUtanKöttbulle {
-background: linear-gradient(purple, darkblue);
+  background: linear-gradient(purple, darkblue);
 }
 @media only screen and (min-width: 1000px) {
   main {
@@ -42,12 +42,10 @@ background: linear-gradient(purple, darkblue);
   .Ikoner img {
     max-height: min(10vw, 80px);
     max-width: min(5vw, 100px);
-    
   }
   .FarmödrarDiv img {
     max-height: min(5vw, 80px);
     max-width: min(5vw, 50px);
-    
   }
 
   .Butik button {
@@ -56,7 +54,9 @@ background: linear-gradient(purple, darkblue);
     width: calc(5px + 2vw);
     height: calc(5px + 2vw);
     background-color: black;
-    color: white;
+    color: aliceblue;
+    font-size: calc(8px + 1vw);
+    border-radius: 50%;
   }
   .Butik div {
     background-color: royalblue;
@@ -109,7 +109,7 @@ background: linear-gradient(purple, darkblue);
 
 header {
   background-color: black;
-  color: white;
+  color: aliceblue;
   grid-column: 1 / -1;
   display: flex;
 }
@@ -117,9 +117,18 @@ header {
 .left {
   display: flex;
   width: 20vw;
-  font-size: calc(4px + 0.5vw);
+  font-size: calc(6px + 0.8vw);
   align-items: center;
   justify-content: center;
+}
+.left div {
+  border: aliceblue solid 2px;
+  border-radius: 20%;
+  padding: 0.2vw;
+}
+.left a {
+  color: aliceblue;
+  text-decoration: none;
 }
 
 .center {
@@ -133,7 +142,6 @@ header {
   width: 20vw;
 }
 
-
 .Köttbulle {
   text-align: center;
   align-items: center;
@@ -146,15 +154,15 @@ header {
   font-size: calc(4px + 3vw);
 }
 
-.SmåIkoner {
-  align-self: center;
-  max-height: min(5vw, 40px); 
-  max-width: min(2.5vw, 50px); 
-  margin-left: 2vw;
-}
 .Ikoner {
   display: grid;
   grid-template-rows: repeat(7, 1fr);
+}
+.SmåIkoner {
+  align-self: center;
+  max-height: min(5vw, 50px);
+  max-width: min(5vw, 50px);
+  margin-left: 2vw;
 }
 .Ikoner div {
   display: flex;
@@ -162,11 +170,16 @@ header {
 .FarmödrarDiv img {
   margin-left: 20px;
   margin-right: 20px;
+  align-self: center;
+}
+.Ikoner img {
+  align-self: center;
 }
 .ExtraIkoner {
   display: grid;
   grid-template-rows: repeat(7, 1fr);
   align-items: center;
+  font-size: calc(4px + 2vw);
 }
 
 .Butik {
@@ -182,4 +195,3 @@ article {
   align-self: center;
   justify-self: center;
 }
-

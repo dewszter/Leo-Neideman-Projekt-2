@@ -7,13 +7,12 @@ if (localStorage.getItem("antalKlick") == NaN) {
 if (localStorage.getItem("antalKöttbullar") == NaN) {
   localStorage.setItem("antalKöttbullar", 0);
 }
-if (localStorage.getItem("perSek") == NaN) {
-  localStorage.setItem("perSek", 0);
-}
 
 //localStorage.clear()
 let antalKöttbullar = Number(localStorage.getItem("antalKöttbullar"));
-let perSek = Number(localStorage.getItem("perSek"));
+let perSek =  Number(localStorage.getItem("perSek")) || 0;
+
+let myThing = Number(localStorage.getItem("myThing")) || 0;
 
 let antalFarmödrar = 0;
 let antalUgnar = 0;
