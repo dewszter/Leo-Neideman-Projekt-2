@@ -62,7 +62,7 @@ body {
     border-radius: 50%;
   }
   .Butik div {
-    background-color: royalblue;
+    background: linear-gradient( blue, darkblue);;
     border: black solid 2px;
     border-radius: 10%;
     margin: calc(1px + 0.4vw);
