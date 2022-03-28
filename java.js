@@ -12,7 +12,7 @@ if (localStorage.getItem("antalKöttbullar") == NaN) {
 let antalKöttbullar = Number(localStorage.getItem("antalKöttbullar"));
 let perSek =  Number(localStorage.getItem("perSek")) || 0;
 
-let myThing = Number(localStorage.getItem("myThing")) || 0;
+
 
 let antalFarmödrar = 0;
 let antalUgnar = 0;

@@ -1,0 +1,43 @@
+
+  header {
+      background-color: black;
+      color: aliceblue;
+      grid-column: 1 / -1;
+    display: flex;
+  }
+  
+  .left {
+      display: flex;
+      width: 20vw;
+      font-size: calc(6px + 0.8vw);
+      align-items: center;
+    justify-content: center;
+}
+  .left div {
+    border: aliceblue solid 2px;
+    border-radius: 20%;
+    padding: 0.2vw;
+  }
+  .left a {
+    color: aliceblue;
+    text-decoration: none;
+}
+  
+.center {
+    display: flex;
+    width: 60vw;
+    font-size: calc(5px + 0.6vw);
+    align-items: center;
+    justify-content: center;
+}
+.right {
+    width: 20vw;
+}
+
+article {
+    padding: 9.5vw;
+    border: 2px solid black;
+    align-self: center;
+    justify-self: center;
+  }
+  

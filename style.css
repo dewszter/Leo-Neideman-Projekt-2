@@ -14,11 +14,14 @@ body {
   width: 100vw;
 }
 
+
 .Köttbulle {
-  background: linear-gradient(#f9906f, black);
+  background: linear-gradient( blue, darkblue);
+  border: black solid 2px;
 }
 .MainUtanKöttbulle {
-  background: linear-gradient(purple, darkblue);
+  background-color:  yellow;
+  border: black solid 2px;  
 }
 @media only screen and (min-width: 1000px) {
   main {
@@ -145,6 +148,7 @@ header {
 .Köttbulle {
   text-align: center;
   align-items: center;
+  
 }
 
 .stats {
@@ -152,6 +156,7 @@ header {
   grid-template-rows: 1fr 1fr;
   text-align: center;
   font-size: calc(4px + 3vw);
+  
 }
 
 .Ikoner {
@@ -189,9 +194,4 @@ header {
   text-align: center;
   font-size: calc(6px + 0.8vw);
 }
-article {
-  padding: 9.5vw;
-  border: 2px solid black;
-  align-self: center;
-  justify-self: center;
-}
+
